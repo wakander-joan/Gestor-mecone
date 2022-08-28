@@ -18,12 +18,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 public class Produto {
+	public static int codigoFix = 0;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(columnDefinition = "uuid", name = "id", updatable = false, unique = true, nullable = false)
 	private UUID idProduto;
 	@NotBlank
-	private int codigo;
+	private int codigo = codigoFix++;
 	@NotBlank
 	private String descricao;
 	@NotBlank
