@@ -1,5 +1,7 @@
 package br.com.mecone.gestor.produto.api.service;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
@@ -25,6 +27,13 @@ public class ProdutoApplicationService implements ProdutoService {
 		return ProdutoResponse.builder().idProduto(produtoCriado.getIdProduto())
 										.descricao(produtoCriado.getDescricao())
 										.codigo(produtoCriado.getCodigo()).build();
+	}
+
+	@Override
+	public List<ProdutoResponse> getTodosProdutos() {
+		log.info("[start] ProdutoApplicationService -  getTodosProdutos");
+		log.info("[finish] ProdutoApplicationService -  getTodosProdutos");
+		return null;
 	}
 
 }
