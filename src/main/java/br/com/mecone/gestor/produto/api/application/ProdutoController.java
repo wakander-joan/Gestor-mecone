@@ -1,5 +1,7 @@
 package br.com.mecone.gestor.produto.api.application;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +22,13 @@ public class ProdutoController implements ProdutoAPI {
 		ProdutoResponse produtoResponse = produtoService.postProduto(produtoRequest);
 		log.info("[finish] ProdutoController -  postProduto");
 		return produtoResponse;
+	}
+
+	@Override
+	public List<ProdutoResponse> getTodosProdutos() {
+		log.info("[start] ProdutoController -  getTodosProdutos");
+		log.info("[finish] ProdutoController -  getTodosProdutos");
+		return null;
 	}
 
 }
