@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
 
+import br.com.mecone.gestor.produto.api.application.ProdutoListResponse;
 import br.com.mecone.gestor.produto.api.application.ProdutoRequest;
 import br.com.mecone.gestor.produto.api.application.ProdutoResponse;
 import br.com.mecone.gestor.produto.api.repository.ProdutoRepository;
@@ -30,10 +31,11 @@ public class ProdutoApplicationService implements ProdutoService {
 	}
 
 	@Override
-	public List<ProdutoResponse> getTodosProdutos() {
+	public List<ProdutoListResponse> getTodosProdutos() {
 		log.info("[start] ProdutoApplicationService -  getTodosProdutos");
+		List<Produto> produtos = produtoRepository.getTodosProdutos();
 		log.info("[finish] ProdutoApplicationService -  getTodosProdutos");
-		return null;
+		return ProdutoListResponse.convert(produtos);
 	}
 
 }

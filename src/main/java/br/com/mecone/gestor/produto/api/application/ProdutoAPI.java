@@ -20,5 +20,5 @@ public interface ProdutoAPI {
 	
 	@GetMapping 
 	@ResponseStatus (code = HttpStatus.OK)
-	List <ProdutoResponse> getTodosProdutos();
+	List <ProdutoListResponse> getTodosProdutos();
 }
