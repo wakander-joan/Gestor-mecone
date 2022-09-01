@@ -38,4 +38,10 @@ public class ProdutoApplicationService implements ProdutoService {
 		return ProdutoListResponse.convert(produtos);
 	}
 
+	@Override
+	public ProdutoResponse buscaProdutoPorCodigo(int codigo) {
+		log.info("[start] ProdutoApplicationService -  buscaProdutoPorCodigo");
+		log.info("[finish] ProdutoApplicationService -  buscaProdutoPorCodigo");
+		return null;
+	}
 }
