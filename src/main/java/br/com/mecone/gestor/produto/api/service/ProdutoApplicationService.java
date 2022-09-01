@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
 
+import br.com.mecone.gestor.produto.api.application.ProdutoDetalhadoResponse;
 import br.com.mecone.gestor.produto.api.application.ProdutoListResponse;
 import br.com.mecone.gestor.produto.api.application.ProdutoRequest;
 import br.com.mecone.gestor.produto.api.application.ProdutoResponse;
@@ -26,8 +27,8 @@ public class ProdutoApplicationService implements ProdutoService {
 		Produto produtoCriado = produtoRepository.salva(new Produto(produtoRequest));
 		log.info("[finish] ProdutoApplicationService -  postProduto");
 		return ProdutoResponse.builder().idProduto(produtoCriado.getIdProduto())
-										.descricao(produtoCriado.getDescricao())
-										.codigo(produtoCriado.getCodigo()).build();
+				.descricao(produtoCriado.getDescricao())
+				.codigo(produtoCriado.getCodigo()).build();
 	}
 
 	@Override
@@ -39,9 +40,11 @@ public class ProdutoApplicationService implements ProdutoService {
 	}
 
 	@Override
-	public ProdutoResponse buscaProdutoPorCodigo(int codigo) {
+	public ProdutoDetalhadoResponse buscaProdutoPorCodigo(int codigo) {
 		log.info("[start] ProdutoApplicationService -  buscaProdutoPorCodigo");
+		Produto produto = produtoRepository.buscaProdutoPorCodigo(codigo);
 		log.info("[finish] ProdutoApplicationService -  buscaProdutoPorCodigo");
-		return null;
+		return new ProdutoDetalhadoResponse(produto);
 	}
+
 }

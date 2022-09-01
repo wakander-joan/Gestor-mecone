@@ -33,9 +33,9 @@ public class ProdutoController implements ProdutoAPI {
 	}
 
 	@Override
-	public ProdutoResponse buscaProdutoPorCodigo(int codigo) {
+	public ProdutoDetalhadoResponse buscaProdutoPorCodigo(int codigo) {
 		log.info("[start] ProdutoController -  buscaProdutoPorCodigo");
-		ProdutoResponse produto = produtoService.buscaProdutoPorCodigo(codigo);
+		ProdutoDetalhadoResponse produto = produtoService.buscaProdutoPorCodigo(codigo);
 		log.info("[finish] ProdutoController -  buscaProdutoPorCodigo");
 		return produto;
 	}

@@ -7,5 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import br.com.mecone.gestor.produto.domain.Produto;
 
 public interface ProdutoSpringDataJPARepository extends JpaRepository<Produto, UUID>{
-	
+	Produto findByCodigo(int codigo);
 }

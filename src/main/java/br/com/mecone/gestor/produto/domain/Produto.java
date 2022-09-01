@@ -39,6 +39,7 @@ public class Produto {
 	private Grupo grupo;
 	@NotNull
 	private double preco;
+	@Getter
 	private static int estoque = 0;
 	@NotNull
 	private TipoEstoque tipoEstoque;

@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import br.com.mecone.gestor.produto.api.application.ProdutoListResponse;
 import br.com.mecone.gestor.produto.api.repository.ProdutoRepository;
 import br.com.mecone.gestor.produto.domain.Produto;
 import lombok.RequiredArgsConstructor;
@@ -30,6 +29,14 @@ public class ProdutoInfraRepository implements ProdutoRepository {
 		List<Produto> produtos = produtoSpringDataJPARepository.findAll();
 		log.info("[finish] ProdutoInfraRepository -  getTodosProdutos");
 		return produtos;
+	}
+
+	@Override
+	public Produto buscaProdutoPorCodigo(int codigo) {
+		log.info("[start] ProdutoInfraRepository -  buscaProdutoPorCodigo");
+		Produto produto = produtoSpringDataJPARepository.findByCodigo(codigo);
+		log.info("[finish] ProdutoInfraRepository -  buscaProdutoPorCodigo");
+		return produto;
 	}
 
 }

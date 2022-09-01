@@ -1,14 +1,11 @@
 package br.com.mecone.gestor.produto.api.application;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import br.com.mecone.gestor.produto.domain.Grupo;
 import br.com.mecone.gestor.produto.domain.Produto;
 import lombok.Value;
 
 @Value
-public class ProdutoListResponse {
+public class ProdutoDetalhadoResponse {
 	private int codigo;
 	private String descricao;
 	private String referencia;
@@ -16,15 +13,10 @@ public class ProdutoListResponse {
 	private String aplicacao;
 	private Grupo grupo;
 	private double preco;
-	private static int estoque;
+	private int estoque;
 	private String localEstoque; 
 	
-	public static List<ProdutoListResponse> convert (List<Produto> produtos){
-		return produtos.stream().map(c -> new ProdutoListResponse(c)).collect(Collectors.toList());
-	}
-
-	public ProdutoListResponse(Produto produto) {
-		super();
+	public ProdutoDetalhadoResponse (Produto produto) {
 		this.codigo = produto.getCodigo();
 		this.descricao = produto.getDescricao();
 		this.referencia = produto.getReferencia();
@@ -35,6 +27,4 @@ public class ProdutoListResponse {
 		this.localEstoque = produto.getLocalEstoque();
 		this.estoque = produto.getEstoque();
 	}
-	
-	
 }

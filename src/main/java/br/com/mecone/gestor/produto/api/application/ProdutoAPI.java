@@ -25,6 +25,6 @@ public interface ProdutoAPI {
 	
 	@GetMapping (value = "/findByCode/{codigo}")
 	@ResponseStatus (code = HttpStatus.OK)
-	ProdutoResponse buscaProdutoPorCodigo (@PathVariable int codigo);
+	ProdutoDetalhadoResponse buscaProdutoPorCodigo (@PathVariable int codigo);
 	
 }
