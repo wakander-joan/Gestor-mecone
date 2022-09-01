@@ -4,8 +4,10 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import br.com.mecone.gestor.handler.APIException;
 import br.com.mecone.gestor.produto.api.application.ProdutoDetalhadoResponse;
 import br.com.mecone.gestor.produto.api.application.ProdutoListResponse;
 import br.com.mecone.gestor.produto.api.application.ProdutoRequest;

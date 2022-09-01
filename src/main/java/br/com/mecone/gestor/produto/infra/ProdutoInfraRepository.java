@@ -1,9 +1,11 @@
-package br.com.mecone.gestor.produto.api.infra;
+package br.com.mecone.gestor.produto.infra;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import br.com.mecone.gestor.handler.APIException;
 import br.com.mecone.gestor.produto.api.repository.ProdutoRepository;
 import br.com.mecone.gestor.produto.domain.Produto;
 import lombok.RequiredArgsConstructor;
@@ -34,9 +36,9 @@ public class ProdutoInfraRepository implements ProdutoRepository {
 	@Override
 	public Produto buscaProdutoPorCodigo(int codigo) {
 		log.info("[start] ProdutoInfraRepository -  buscaProdutoPorCodigo");
-		Produto produto = produtoSpringDataJPARepository.findByCodigo(codigo);
+		Produto produto = produtoSpringDataJPARepository.findByCodigo( codigo)
+				.orElseThrow(()-> APIException.build(HttpStatus.BAD_REQUEST, "Tarefa não encontrada!"));
 		log.info("[finish] ProdutoInfraRepository -  buscaProdutoPorCodigo");
 		return produto;
 	}
-
 }

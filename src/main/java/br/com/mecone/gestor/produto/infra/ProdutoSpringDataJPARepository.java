@@ -1,5 +1,6 @@
-package br.com.mecone.gestor.produto.api.infra;
+package br.com.mecone.gestor.produto.infra;
 
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -7,5 +8,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import br.com.mecone.gestor.produto.domain.Produto;
 
 public interface ProdutoSpringDataJPARepository extends JpaRepository<Produto, UUID>{
-	Produto findByCodigo(int codigo);
+	Optional <Produto> findByCodigo (int codigo);
 }

@@ -13,12 +13,16 @@ import javax.validation.constraints.NotNull;
 
 import br.com.mecone.gestor.produto.api.application.ProdutoRequest;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor
 @Getter
+@Builder
 public class Produto {
 	public static int codigoFix = 0;
 	
@@ -55,5 +59,6 @@ public class Produto {
 		this.preco = produtoRequest.getPreco();
 		this.localEstoque = produtoRequest.getLocalEstoque();
 		this.tipoEstoque = produtoRequest.getTipoEstoque();
-	}	
+	}
+
 }
