@@ -1,4 +1,4 @@
-package br.com.mecone.gestor.empresa.api.infra;
+package br.com.mecone.gestor.empresa.infra;
 
 import java.util.UUID;
 
