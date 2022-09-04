@@ -11,6 +11,8 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import org.springframework.stereotype.Indexed;
+
 import br.com.mecone.gestor.produto.api.application.ProdutoRequest;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -30,6 +32,8 @@ public class Produto {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(columnDefinition = "uuid", name = "id", updatable = false, unique = true, nullable = false)
 	private UUID idProduto;
+	@NotNull
+	private UUID idEmpresa;
 	private int codigo = codigoFix++;
 	@NotBlank
 	private String descricao;
@@ -59,6 +63,7 @@ public class Produto {
 		this.preco = produtoRequest.getPreco();
 		this.localEstoque = produtoRequest.getLocalEstoque();
 		this.tipoEstoque = produtoRequest.getTipoEstoque();
+		this.idEmpresa = produtoRequest.getIdEmpresa();
 	}
 
 }

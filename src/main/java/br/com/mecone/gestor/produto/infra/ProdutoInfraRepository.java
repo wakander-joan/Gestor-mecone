@@ -2,6 +2,7 @@ package br.com.mecone.gestor.produto.infra;
 
 import java.util.List;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
@@ -20,7 +21,11 @@ public class ProdutoInfraRepository implements ProdutoRepository {
 	@Override
 	public Produto salva(Produto produto) {
 		log.info("[start] ProdutoInfraRepository -  salva");
-		produtoSpringDataJPARepository.save(produto);
+		try {
+			produtoSpringDataJPARepository.save(produto);
+		} catch (DataIntegrityViolationException e) {
+			throw APIException.build(HttpStatus.BAD_REQUEST, "Produto já cadastrada", e);
+		}
 		log.info("[finish] ProdutoInfraRepository -  salva");
 		return produto;
 	}

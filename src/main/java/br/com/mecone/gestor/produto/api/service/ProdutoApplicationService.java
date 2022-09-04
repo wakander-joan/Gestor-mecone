@@ -28,7 +28,8 @@ public class ProdutoApplicationService implements ProdutoService {
 		log.info("[finish] ProdutoApplicationService -  postProduto");
 		return ProdutoResponse.builder().idProduto(produtoCriado.getIdProduto())
 				.descricao(produtoCriado.getDescricao())
-				.codigo(produtoCriado.getCodigo()).build();
+				.codigo(produtoCriado.getCodigo())
+				.idEmpresa(produtoCriado.getIdEmpresa()).build();
 	}
 
 	@Override

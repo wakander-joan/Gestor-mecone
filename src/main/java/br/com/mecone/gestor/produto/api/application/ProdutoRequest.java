@@ -1,5 +1,7 @@
 package br.com.mecone.gestor.produto.api.application;
 
+import java.util.UUID;
+
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -12,6 +14,8 @@ import lombok.Value;
 @Value
 public class ProdutoRequest {
 	
+	@NotNull
+	private UUID idEmpresa;
 	@NotBlank
 	private String descricao;
 	@NotBlank

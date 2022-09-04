@@ -8,6 +8,7 @@ import lombok.Value;
 @Builder
 @Value
 public class ProdutoResponse {
+	private UUID idEmpresa;
 	private UUID idProduto;
 	private String descricao;
 	private int codigo;
