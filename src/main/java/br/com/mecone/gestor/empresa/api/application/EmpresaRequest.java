@@ -17,7 +17,9 @@ public class EmpresaRequest {
 	private String senha;
 	@NotBlank
 	private String email;
+	
 	private String empresaPai;
+	
 	@NotNull
 	private boolean aceitaTermos;
 }
