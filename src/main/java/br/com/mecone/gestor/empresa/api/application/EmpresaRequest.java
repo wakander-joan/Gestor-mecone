@@ -1,7 +1,7 @@
 package br.com.mecone.gestor.empresa.api.application;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
 import lombok.Builder;
 import lombok.Value;
@@ -16,10 +16,8 @@ public class EmpresaRequest {
 	@NotBlank
 	private String senha;
 	@NotBlank
+	@Email
 	private String email;
-	
 	private String empresaPai;
-	
-	@NotNull
-	private boolean aceitaTermos;
+
 }

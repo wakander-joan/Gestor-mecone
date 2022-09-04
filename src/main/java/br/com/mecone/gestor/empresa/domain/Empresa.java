@@ -7,9 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
+import br.com.mecone.gestor.empresa.api.application.EmpresaRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,8 +30,17 @@ public class Empresa {
 	@NotBlank
 	private String senha;
 	@NotBlank
+	@Email
 	private String email;
 	private String empresaPai;
-	@NotNull
-	private boolean aceitaTermos;
+	
+	public Empresa(EmpresaRequest empresaRequest) {
+		this.cnpj = empresaRequest.getCnpj();
+		this.nomeFantasia = empresaRequest.getNomeFantasia();
+		this.senha = empresaRequest.getSenha();
+		this.email = empresaRequest.getEmail();
+		this.empresaPai = empresaRequest.getEmpresaPai();
+	}
+	
+	
 }
