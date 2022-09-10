@@ -12,12 +12,16 @@ import javax.validation.constraints.NotBlank;
 
 import br.com.mecone.gestor.empresa.api.application.EmpresaRequest;
 import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
-@Getter
 @Entity
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor
+@Getter
+@Builder
 public class Empresa {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

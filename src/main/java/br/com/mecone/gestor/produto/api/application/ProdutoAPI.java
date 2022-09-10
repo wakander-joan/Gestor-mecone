@@ -1,6 +1,9 @@
 package br.com.mecone.gestor.produto.api.application;
 
 import java.util.List;
+import java.util.UUID;
+
+import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,13 +20,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping ("/v1/produto")
 public interface ProdutoAPI {
 	
-	@PostMapping
+	@PostMapping (value = "/{idEmpresa}/post-produto")
 	@ResponseStatus (code = HttpStatus.CREATED)
-	ProdutoResponse postProduto ( @RequestBody ProdutoRequest produtoRequest);
+	ProdutoResponse postProduto (@PathVariable UUID idEmpresa ,@Valid @RequestBody ProdutoRequest produtoRequest);
 	
-	@GetMapping 
+	@GetMapping (value = "/findBy-produtos/{idEmpresa}")
 	@ResponseStatus (code = HttpStatus.OK)
-	List <ProdutoListResponse> getTodosProdutos();
+	List <ProdutoListResponse> getProdutosEmpresa(@Valid @PathVariable UUID idEmpresa);
 	
 	@GetMapping (value = "/findByCode/{codigo}")
 	@ResponseStatus (code = HttpStatus.OK)

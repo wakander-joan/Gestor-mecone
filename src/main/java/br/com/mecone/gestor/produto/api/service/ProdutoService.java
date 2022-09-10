@@ -1,6 +1,7 @@
 package br.com.mecone.gestor.produto.api.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.validation.Valid;
 
@@ -10,7 +11,7 @@ import br.com.mecone.gestor.produto.api.application.ProdutoRequest;
 import br.com.mecone.gestor.produto.api.application.ProdutoResponse;
 
 public interface ProdutoService {
-	ProdutoResponse postProduto(@Valid ProdutoRequest produtoRequest);
-	List<ProdutoListResponse> getTodosProdutos();
 	ProdutoDetalhadoResponse buscaProdutoPorCodigo(int codigo);
+	List<ProdutoListResponse> getTodosProdutos(UUID idEmpresa);
+	ProdutoResponse postProduto(UUID idEmpresa, @Valid ProdutoRequest produtoRequest);
 }

@@ -1,5 +1,8 @@
 package br.com.mecone.gestor.empresa.infra;
 
+import java.util.Optional;
+import java.util.UUID;
+
 import org.springframework.stereotype.Repository;
 
 import br.com.mecone.gestor.empresa.api.repository.EmpresaRepository;
@@ -19,5 +22,13 @@ public class EmpresaInfraRepository implements EmpresaRepository {
 		empresaSpringDataJPARepository.save(empresa);
 		log.info("[finish] EmpresaInfraRepository - salva");
 		return empresa;
-	}	
+	}
+
+	@Override
+	public Optional<Empresa> getProdutoByEmpresa(UUID idEmpresa) {	
+		log.info("[start] EmpresaInfraRepository - getEmpresa");
+		Optional<Empresa> empresa = empresaSpringDataJPARepository.findByIdEmpresa(idEmpresa);
+		log.info("[finish] EmpresaInfraRepository - getEmpresa");
+		return empresa;
+	}
 }

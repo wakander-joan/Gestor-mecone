@@ -20,11 +20,12 @@ public class ProdutoListResponse {
 	private String localEstoque; 
 	
 	public static List<ProdutoListResponse> convert (List<Produto> produtos){
-		return produtos.stream().map(c -> new ProdutoListResponse(c)).collect(Collectors.toList());
+		return produtos.stream()
+				.map(ProdutoListResponse::new)
+				.collect(Collectors.toList());
 	}
 
 	public ProdutoListResponse(Produto produto) {
-		super();
 		this.codigo = produto.getCodigo();
 		this.descricao = produto.getDescricao();
 		this.referencia = produto.getReferencia();

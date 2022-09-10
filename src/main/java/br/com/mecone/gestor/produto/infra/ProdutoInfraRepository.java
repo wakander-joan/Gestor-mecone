@@ -1,6 +1,7 @@
 package br.com.mecone.gestor.produto.infra;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
@@ -31,19 +32,19 @@ public class ProdutoInfraRepository implements ProdutoRepository {
 	}
 
 	@Override
-	public List<Produto> getTodosProdutos() {
-		log.info("[start] ProdutoInfraRepository -  getTodosProdutos");
-		List<Produto> produtos = produtoSpringDataJPARepository.findAll();
-		log.info("[finish] ProdutoInfraRepository -  getTodosProdutos");
-		return produtos;
-	}
-
-	@Override
 	public Produto buscaProdutoPorCodigo(int codigo) {
 		log.info("[start] ProdutoInfraRepository -  buscaProdutoPorCodigo");
 		Produto produto = produtoSpringDataJPARepository.findByCodigo( codigo)
-				.orElseThrow(()-> APIException.build(HttpStatus.BAD_REQUEST, "Tarefa não encontrada!"));
+				.orElseThrow(()-> APIException.build(HttpStatus.BAD_REQUEST, "Produto não encontrada!"));
 		log.info("[finish] ProdutoInfraRepository -  buscaProdutoPorCodigo");
 		return produto;
+	}
+
+	@Override
+	public List<Produto> getTodosProdutos(UUID idEmpresa) {
+		log.info("[start] ProdutoInfraRepository -  getTodosProdutos");
+		var produtos = produtoSpringDataJPARepository.findAllByIdEmpresaPertencente(idEmpresa);
+		log.info("[finish] ProdutoInfraRepository -  getTodosProdutos");
+		return produtos;
 	}
 }

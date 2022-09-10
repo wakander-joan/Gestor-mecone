@@ -11,8 +11,6 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import org.springframework.stereotype.Indexed;
-
 import br.com.mecone.gestor.produto.api.application.ProdutoRequest;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -30,11 +28,14 @@ public class Produto {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(columnDefinition = "uuid", name = "id", updatable = false, unique = true, nullable = false)
+	@Column(columnDefinition = "uuid", name = "idProduto", updatable = false, unique = true, nullable = false)
 	private UUID idProduto;
 	@NotNull
-	private UUID idEmpresa;
+	@Column(columnDefinition = "uuid", name = "idEmpresaPertencente", nullable = false)
+	private UUID idEmpresaPertencente;
+	
 	private int codigo = codigoFix++;
+	
 	@NotBlank
 	private String descricao;
 	@NotBlank
@@ -54,7 +55,7 @@ public class Produto {
 	@NotBlank
 	private String localEstoque; 
 	
-	public Produto(@Valid ProdutoRequest produtoRequest) {
+	public Produto(UUID idEmpresa ,@Valid ProdutoRequest produtoRequest) {
 		this.descricao = produtoRequest.getDescricao();
 		this.referencia = produtoRequest.getReferencia();
 		this.fabricante = produtoRequest.getFabricante();
@@ -63,7 +64,6 @@ public class Produto {
 		this.preco = produtoRequest.getPreco();
 		this.localEstoque = produtoRequest.getLocalEstoque();
 		this.tipoEstoque = produtoRequest.getTipoEstoque();
-		this.idEmpresa = produtoRequest.getIdEmpresa();
+		this.idEmpresaPertencente = idEmpresa;
 	}
-
 }
