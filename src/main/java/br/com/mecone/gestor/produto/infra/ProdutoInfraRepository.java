@@ -51,6 +51,7 @@ public class ProdutoInfraRepository implements ProdutoRepository {
 	@Override
 	public void deletaProduto(UUID idProduto) {
 		log.info("[start] ProdutoInfraRepository -  deletaProduto");
+		produtoSpringDataJPARepository.deleteById(idProduto);
 		log.info("[finish] ProdutoInfraRepository -  deletaProduto");
 	}
 }
