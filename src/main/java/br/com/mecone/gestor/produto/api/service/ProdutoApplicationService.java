@@ -50,4 +50,10 @@ public class ProdutoApplicationService implements ProdutoService {
 		log.info("[finish] ProdutoApplicationService -  buscaProdutoPorCodigo");
 		return new ProdutoDetalhadoResponse(produto);
 	}
+
+	@Override
+	public void deletaProduto(UUID idProduto) {
+		log.info("[start] ProdutoApplicationService -  deletaProduto");
+		log.info("[finish] ProdutoApplicationService -  deletaProduto");
+	}
 }

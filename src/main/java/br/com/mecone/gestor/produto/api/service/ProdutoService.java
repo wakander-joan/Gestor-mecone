@@ -14,4 +14,5 @@ public interface ProdutoService {
 	ProdutoDetalhadoResponse buscaProdutoPorCodigo(int codigo);
 	List<ProdutoListResponse> getTodosProdutos(UUID idEmpresa);
 	ProdutoResponse postProduto(UUID idEmpresa, @Valid ProdutoRequest produtoRequest);
+	void deletaProduto(UUID idProduto);
 }
