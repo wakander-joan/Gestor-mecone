@@ -54,6 +54,7 @@ public class ProdutoApplicationService implements ProdutoService {
 	@Override
 	public void deletaProduto(UUID idProduto) {
 		log.info("[start] ProdutoApplicationService -  deletaProduto");
+		produtoRepository.deletaProduto(idProduto);
 		log.info("[finish] ProdutoApplicationService -  deletaProduto");
 	}
 }

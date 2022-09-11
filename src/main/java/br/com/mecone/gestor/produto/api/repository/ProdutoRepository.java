@@ -9,4 +9,5 @@ public interface ProdutoRepository {
 	Produto salva(Produto produto);
 	Produto buscaProdutoPorCodigo(int codigo);
 	List<Produto> getTodosProdutos(UUID idEmpresa);
+	void deletaProduto(UUID idProduto);
 }

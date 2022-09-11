@@ -47,4 +47,10 @@ public class ProdutoInfraRepository implements ProdutoRepository {
 		log.info("[finish] ProdutoInfraRepository -  getTodosProdutos");
 		return produtos;
 	}
+
+	@Override
+	public void deletaProduto(UUID idProduto) {
+		log.info("[start] ProdutoInfraRepository -  deletaProduto");
+		log.info("[finish] ProdutoInfraRepository -  deletaProduto");
+	}
 }
