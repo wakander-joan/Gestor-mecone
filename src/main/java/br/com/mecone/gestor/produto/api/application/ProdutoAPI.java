@@ -27,9 +27,9 @@ public interface ProdutoAPI {
 	@ResponseStatus (code = HttpStatus.OK)
 	List <ProdutoListResponse> getProdutosEmpresa(@Valid @PathVariable UUID idEmpresa);
 	
-	@GetMapping (value = "/findByCode/{codigo}")
+	@GetMapping (value = "/findBy-idProduto/{idProduto}")
 	@ResponseStatus (code = HttpStatus.OK)
-	ProdutoDetalhadoResponse buscaProdutoPorCodigo (@PathVariable int codigo);
+	ProdutoDetalhadoResponse buscaProdutoIdProduto(@PathVariable UUID idProduto);
 	
 	@DeleteMapping (value = "/{idProduto}")
 	@ResponseStatus (code = HttpStatus.NO_CONTENT)

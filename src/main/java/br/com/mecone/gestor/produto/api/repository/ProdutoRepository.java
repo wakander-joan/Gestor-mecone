@@ -7,7 +7,7 @@ import br.com.mecone.gestor.produto.domain.Produto;
 
 public interface ProdutoRepository {
 	Produto salva(Produto produto);
-	Produto buscaProdutoPorCodigo(int codigo);
 	List<Produto> getTodosProdutos(UUID idEmpresa);
 	void deletaProduto(UUID idProduto);
+	Produto buscaProdutoIdProduto(UUID idProduto);
 }

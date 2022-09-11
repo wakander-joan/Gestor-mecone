@@ -11,8 +11,8 @@ import br.com.mecone.gestor.produto.api.application.ProdutoRequest;
 import br.com.mecone.gestor.produto.api.application.ProdutoResponse;
 
 public interface ProdutoService {
-	ProdutoDetalhadoResponse buscaProdutoPorCodigo(int codigo);
 	List<ProdutoListResponse> getTodosProdutos(UUID idEmpresa);
 	ProdutoResponse postProduto(UUID idEmpresa, @Valid ProdutoRequest produtoRequest);
 	void deletaProduto(UUID idProduto);
+	ProdutoDetalhadoResponse buscaProdutoIdProduto(UUID idProduto);
 }

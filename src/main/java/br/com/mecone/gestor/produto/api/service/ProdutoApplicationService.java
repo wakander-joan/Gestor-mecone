@@ -44,9 +44,9 @@ public class ProdutoApplicationService implements ProdutoService {
 	}
 
 	@Override
-	public ProdutoDetalhadoResponse buscaProdutoPorCodigo(int codigo) {
+	public ProdutoDetalhadoResponse buscaProdutoIdProduto(UUID idProduto) {
 		log.info("[start] ProdutoApplicationService -  buscaProdutoPorCodigo");
-		Produto produto = produtoRepository.buscaProdutoPorCodigo(codigo);
+		Produto produto = produtoRepository.buscaProdutoIdProduto(idProduto);
 		log.info("[finish] ProdutoApplicationService -  buscaProdutoPorCodigo");
 		return new ProdutoDetalhadoResponse(produto);
 	}
