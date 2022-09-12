@@ -1,6 +1,7 @@
 package br.com.mecone.gestor.produto.api.application;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import br.com.mecone.gestor.produto.domain.Grupo;
@@ -18,6 +19,7 @@ public class ProdutoListResponse {
 	private double preco;
 	private static int estoque;
 	private String localEstoque; 
+	private UUID idProduto;
 	
 	public static List<ProdutoListResponse> convert (List<Produto> produtos){
 		return produtos.stream()
@@ -35,6 +37,7 @@ public class ProdutoListResponse {
 		this.preco = produto.getPreco();
 		this.localEstoque = produto.getLocalEstoque();
 		this.estoque = produto.getEstoque();
+		this.idProduto = produto.getIdProduto();
 	}
 	
 	
