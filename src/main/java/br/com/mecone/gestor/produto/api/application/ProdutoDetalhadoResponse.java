@@ -2,6 +2,7 @@ package br.com.mecone.gestor.produto.api.application;
 
 import br.com.mecone.gestor.produto.domain.Grupo;
 import br.com.mecone.gestor.produto.domain.Produto;
+import br.com.mecone.gestor.produto.domain.TipoEstoque;
 import lombok.Value;
 
 @Value
@@ -15,6 +16,7 @@ public class ProdutoDetalhadoResponse {
 	private double preco;
 	private int estoque;
 	private String localEstoque; 
+	private TipoEstoque tipoEstoque;
 	
 	public ProdutoDetalhadoResponse (Produto produto) {
 		this.codigo = produto.getCodigo();
@@ -26,5 +28,6 @@ public class ProdutoDetalhadoResponse {
 		this.preco = produto.getPreco();
 		this.localEstoque = produto.getLocalEstoque();
 		this.estoque = produto.getEstoque();
+		this.tipoEstoque = produto.getTipoEstoque();
 	}
 }
