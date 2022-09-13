@@ -1,7 +1,5 @@
 package br.com.mecone.gestor.funcionario.api.application;
 
-import java.util.UUID;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
