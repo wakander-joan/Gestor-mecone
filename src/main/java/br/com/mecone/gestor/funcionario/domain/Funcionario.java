@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import br.com.mecone.gestor.funcionario.api.application.FuncionarioRequeste;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -37,4 +38,13 @@ public class Funcionario {
 	
 	private int codigoFuncionario = geradorCodigo++;
 
+	public Funcionario(UUID idEmpresa, FuncionarioRequeste funcionarioRequeste) {
+		this.idEmpresa = idEmpresa;
+		this.nome = funcionarioRequeste.getNome();
+		this.cargo = funcionarioRequeste.getCargo();
+	}
+	
+	
+
 }
+
