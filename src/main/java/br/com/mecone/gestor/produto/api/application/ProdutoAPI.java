@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -34,5 +35,9 @@ public interface ProdutoAPI {
 	@DeleteMapping (value = "/{idProduto}")
 	@ResponseStatus (code = HttpStatus.NO_CONTENT)
 	void deletaProduto(@PathVariable UUID idProduto);
+	
+	@PatchMapping (value = "/{idProduto}")
+	@ResponseStatus (code = HttpStatus.CREATED)
+	void alteraProduto (@PathVariable UUID idProduto,@Valid @RequestBody ProdutoAlteraaRequest produtoAtualizaRequest); 
 	
 }
