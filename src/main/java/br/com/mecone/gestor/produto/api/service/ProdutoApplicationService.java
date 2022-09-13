@@ -9,12 +9,14 @@ import org.springframework.stereotype.Service;
 
 import br.com.mecone.gestor.empresa.api.application.EmpresaDetalhadaResponse;
 import br.com.mecone.gestor.empresa.api.service.EmpresaApplicationService;
+import br.com.mecone.gestor.produto.api.application.ProdutoAlteraaRequest;
 import br.com.mecone.gestor.produto.api.application.ProdutoDetalhadoResponse;
 import br.com.mecone.gestor.produto.api.application.ProdutoListResponse;
 import br.com.mecone.gestor.produto.api.application.ProdutoRequest;
 import br.com.mecone.gestor.produto.api.application.ProdutoResponse;
 import br.com.mecone.gestor.produto.api.repository.ProdutoRepository;
 import br.com.mecone.gestor.produto.domain.Produto;
+import br.com.mecone.gestor.produto.infra.ProdutoInfraRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -24,6 +26,7 @@ import lombok.extern.log4j.Log4j2;
 public class ProdutoApplicationService implements ProdutoService {
 	private final ProdutoRepository produtoRepository;
 	private final EmpresaApplicationService empresaApplicationService;
+	private final ProdutoInfraRepository produtoInfraRepository;
 
 	@Override
 	public ProdutoResponse postProduto(UUID idEmpresa, @Valid ProdutoRequest produtoRequest) {
@@ -57,5 +60,14 @@ public class ProdutoApplicationService implements ProdutoService {
 		buscaProdutoIdProduto(idProduto);
 		produtoRepository.deletaProduto(idProduto);
 		log.info("[finish] ProdutoApplicationService -  deletaProduto");
+	}
+
+	@Override
+	public void alteraProduto(UUID idProduto, ProdutoAlteraaRequest produtoAtualizaRequest) {
+		log.info("[start] ProdutoApplicationService -  alteraProduto");
+		Produto produto = produtoInfraRepository.buscaProdutoIdProduto(idProduto);
+		produto.Altera(produtoAtualizaRequest);
+		produtoRepository.salva(produto);
+		log.info("[finish] ProdutoApplicationService -  alteraProduto");
 	}
 }

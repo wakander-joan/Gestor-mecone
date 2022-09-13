@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import javax.validation.Valid;
 
+import br.com.mecone.gestor.produto.api.application.ProdutoAlteraaRequest;
 import br.com.mecone.gestor.produto.api.application.ProdutoDetalhadoResponse;
 import br.com.mecone.gestor.produto.api.application.ProdutoListResponse;
 import br.com.mecone.gestor.produto.api.application.ProdutoRequest;
@@ -15,4 +16,5 @@ public interface ProdutoService {
 	ProdutoResponse postProduto(UUID idEmpresa, @Valid ProdutoRequest produtoRequest);
 	void deletaProduto(UUID idProduto);
 	ProdutoDetalhadoResponse buscaProdutoIdProduto(UUID idProduto);
+	void alteraProduto(UUID idProduto, ProdutoAlteraaRequest produtoAtualizaRequest);
 }

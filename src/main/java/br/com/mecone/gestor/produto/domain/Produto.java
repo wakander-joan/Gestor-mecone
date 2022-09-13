@@ -11,6 +11,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import br.com.mecone.gestor.produto.api.application.ProdutoAlteraaRequest;
 import br.com.mecone.gestor.produto.api.application.ProdutoRequest;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -66,4 +67,13 @@ public class Produto {
 		this.tipoEstoque = produtoRequest.getTipoEstoque();
 		this.idEmpresaPertencente = idEmpresa;
 	}
+
+	public void Altera(ProdutoAlteraaRequest produtoAlteraaRequest) {
+		this.descricao = produtoAlteraaRequest.getDescricao();
+		this.referencia = produtoAlteraaRequest.getReferencia();
+		this.aplicacao = produtoAlteraaRequest.getAplicacao();
+		this.localEstoque = produtoAlteraaRequest.getLocalEstoque();
+	}
+	
+	
 }
