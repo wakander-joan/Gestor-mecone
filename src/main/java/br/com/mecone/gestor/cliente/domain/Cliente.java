@@ -32,8 +32,6 @@ public class Cliente {
 	@NotBlank
 	private UUID idEmpresa;
 	@NotBlank
-	private UUID endereço;
-	@NotBlank
 	private String nome;
 	@CPF
 	@NotBlank
@@ -45,6 +43,7 @@ public class Cliente {
 	private String telefone;
 	@NotBlank
 	private String celular;
+	@NotBlank
 	private Sexo sexo;
 	
 }
