@@ -1,6 +1,9 @@
 package br.com.mecone.gestor.cliente.api.application;
 
+import java.util.UUID;
+
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +17,8 @@ import br.com.mecone.gestor.cliente.api.application.DTO.ClienteResponse;
 @RequestMapping ("/v1/cliente")
 public interface ClienteAPI {
 	
-	@PostMapping
+	@PostMapping (value = "post-cliente/{idEmpresa}")
 	@ResponseStatus (code = HttpStatus.CREATED)
-	ClienteResponse postCliente( @RequestBody ClienteRequest clienteRequest);
+	ClienteResponse postCliente(@PathVariable UUID idEmpresa, @RequestBody ClienteRequest clienteRequest);
 
 }

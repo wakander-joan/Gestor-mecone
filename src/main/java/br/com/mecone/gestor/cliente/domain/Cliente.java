@@ -12,6 +12,7 @@ import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.br.CPF;
 
+import br.com.mecone.gestor.cliente.api.application.DTO.ClienteRequest;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -45,6 +46,17 @@ public class Cliente {
 	private String celular;
 	@NotBlank
 	private Sexo sexo;
+	
+	public Cliente( UUID idEmpresa,ClienteRequest clienteRequest) {
+		this.idEmpresa = idEmpresa;
+		this.nome = clienteRequest.getNome();
+		this.cpf = clienteRequest.getCpf();
+		this.razaoSocial = clienteRequest.getRazaoSocial();
+		this.email = clienteRequest.getEmail();
+		this.telefone = clienteRequest.getTelefone();
+		this.celular = clienteRequest.getCelular();
+		this.sexo = clienteRequest.getSexo();
+	}
 	
 }
 
