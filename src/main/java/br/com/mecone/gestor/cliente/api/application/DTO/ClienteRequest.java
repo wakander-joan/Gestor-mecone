@@ -14,7 +14,6 @@ import lombok.Value;
 @Builder
 @Value
 public class ClienteRequest {
-	@NotBlank
 	private UUID idEmpresa;
 	@NotBlank
 	private String nome;
