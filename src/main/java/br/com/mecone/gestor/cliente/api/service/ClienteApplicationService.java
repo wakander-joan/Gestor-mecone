@@ -26,8 +26,6 @@ public class ClienteApplicationService implements ClienteService {
 		empresaApplicationService.getEmpresa(idEmpresa);
 		Cliente cliente = clienteRepository.postCliente(new Cliente(idEmpresa, clienteRequest));
 		log.info("[finish] ClienteApplicationService - postCliente");
-		return null;
-		//return ClienteResponse.builder().idCliente(cliente.getIdCliente()).build();
+		return ClienteResponse.builder().idCliente(cliente.getIdCliente()).build();
 	}
-
 }

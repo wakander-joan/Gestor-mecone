@@ -11,12 +11,14 @@ import lombok.extern.log4j.Log4j2;
 @RequiredArgsConstructor
 @Log4j2
 public class ClienteInfraRepository implements ClienteRepository {
-
+	private final ClienteSpringDataJPARepository clienteSpringDataJPARepository;
+	
 	@Override
 	public Cliente postCliente(Cliente cliente) {
 		log.info("[start] ClienteInfraRepository - postCliente");
+		clienteSpringDataJPARepository.save(cliente);
 		log.info("[finish] ClienteInfraRepository - postCliente");
-		return null;
+		return cliente;
 	}
 
 }
